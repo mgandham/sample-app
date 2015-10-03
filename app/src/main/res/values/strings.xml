@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Material Design Navigation Patterns</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="change_photo">Change Photo</string>
+    <string name="edit_instagram">Instagram</string>
+    <string name="edit_snapchat">Snapchat</string>
+    <string name="bio">Bio:</string>
+    <string name="about">About</string>
+    <string name="request_feature">Request a Feature</string>
+    <string name="email_us">Email Us</string>
+    <string name="logout">Logout</string>
+    <string name="trending_title">Trending</string>
+    <string name="home_title">Home</string>
+    <string name="top_title">Top</string>
+    <string name="new_title">New</string>
+    <string name="inbox_title">Inbox</string>
+    <string name="profile_title">Profile</string>
+</resources>

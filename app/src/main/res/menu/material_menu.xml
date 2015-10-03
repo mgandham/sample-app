@@ -1,0 +1,49 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".HomeScreenActivity">
+    <!--<item-->
+    <!--android:id="@+id/action_search"-->
+    <!--android:orderInCategory="200"-->
+    <!--android:title="Search"-->
+    <!--android:icon="@drawable/ic_action_action_search"-->
+    <!--app:showAsAction="ifRoom"-->
+    <!--></item>-->
+    <item
+        android:id="@+id/action_home"
+        android:orderInCategory="100"
+        android:title="Home"
+        android:icon="@drawable/ic_action_action_home"
+        app:showAsAction="ifRoom"
+        ></item>
+    <item
+        android:id="@+id/action_trending"
+        android:orderInCategory="200"
+        android:title="Trending"
+        android:icon="@drawable/ic_action_action_trending_up"
+        app:showAsAction="ifRoom"
+        ></item>
+    <item
+        android:id="@+id/action_profile"
+        android:orderInCategory="400"
+        android:title="Profile"
+        android:icon="@drawable/ic_action_editor_insert_emoticon"
+        app:showAsAction="ifRoom"
+        ></item>
+    <item
+        android:id="@+id/action_inbox"
+        android:orderInCategory="300"
+        android:title="Inbox"
+        android:icon="@drawable/ic_action_communication_email"
+        app:showAsAction="ifRoom"
+        ></item>
+
+    <!--<item-->
+    <!--android:id="@+id/action_create"-->
+    <!--android:orderInCategory="200"-->
+    <!--android:title="Create Post"-->
+    <!--android:icon="@drawable/vida_create"-->
+    <!--app:showAsAction="ifRoom"-->
+    <!--></item>-->
+
+</menu>
