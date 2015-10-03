@@ -15,4 +15,9 @@ public class ProfileFragment extends RootFragment {
         View view = inflater.inflate(R.layout.profile_layout, container, false);
         return view;
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        mListener.updateToolbarTitle(getString(R.string.profile_title));
+    }
 }

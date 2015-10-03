@@ -56,7 +56,7 @@ public class HomeScreenActivity extends AppCompatActivity implements RootFragmen
         toolBarTitle = (TextView) findViewById(R.id.toolbar_title);
         setSupportActionBar(toolbar);
 
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbar.findViewById(R.id.toolbar_title).setOnClickListener(new View.OnClickListener() {
@@ -103,15 +103,14 @@ public class HomeScreenActivity extends AppCompatActivity implements RootFragmen
             public void onPageSelected(int position) {
                 switch (position) {
                     case 0:
-//                        toolBarTitle.setText(currentToolbarTitle);
+                        toolBarTitle.setText(currentToolbarTitle);
                         if (!pageHistory.empty() && pageHistory.peek()==position)
                             pageHistory.pop(); //duplicate page removed from backstack
                         break;
                     case 1: //Profile is swiped open, add home page to backstack
-//                        toolBarTitle.setText("Profile");
+                        toolBarTitle.setText(getString(R.string.profile_title));
                         if (savePageToHistory) {
                             pageHistory.push(currentPage);
-                            Log.d("Page watcher", "page added to history");
                         }
                         break;
                 }
