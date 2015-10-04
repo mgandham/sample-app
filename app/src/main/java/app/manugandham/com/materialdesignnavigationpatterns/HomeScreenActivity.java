@@ -6,6 +6,15 @@ package app.manugandham.com.materialdesignnavigationpatterns;
 
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -56,13 +65,14 @@ public class HomeScreenActivity extends AppCompatActivity implements RootFragmen
         toolBarTitle = (TextView) findViewById(R.id.toolbar_title);
         setSupportActionBar(toolbar);
 
+        assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbar.findViewById(R.id.toolbar_title).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDrawerLayout.openDrawer(Gravity.LEFT);
+                mDrawerLayout.openDrawer(Gravity.START);
             }
         });
 
@@ -151,7 +161,6 @@ public class HomeScreenActivity extends AppCompatActivity implements RootFragmen
         }
     }
     private void addDrawerItems() {
-        //Bitmap squareBit = getImageFromInternalStorage(genID);
         String[] osArray = { getString(R.string.home_title), getString(R.string.trending_title), getString(R.string.inbox_title), getString(R.string.profile_title)};
         int[] iconArray = {R.drawable.ic_action_home_dark,R.drawable.ic_action_trending_up_dark,R.drawable.ic_action_email_dark,R.drawable.ic_action_emoticon_dark};
         mAdapter = new SideNavListViewAdapter(this, osArray, iconArray);
@@ -199,6 +208,9 @@ public class HomeScreenActivity extends AppCompatActivity implements RootFragmen
         };
         mDrawerToggle.setDrawerIndicatorEnabled(true);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+        Bitmap squareBit = BitmapFactory.decodeResource(getResources(),R.drawable.manu);
+        userImage.setImageBitmap(roundCorners(squareBit));
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -220,10 +232,7 @@ public class HomeScreenActivity extends AppCompatActivity implements RootFragmen
         if (id == R.id.action_inbox) {
             loadInboxTab();
         }
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -280,5 +289,25 @@ public class HomeScreenActivity extends AppCompatActivity implements RootFragmen
     public void updateToolbarTitle(String title) {
         currentToolbarTitle = title;
         toolBarTitle.setText(currentToolbarTitle);
+    }
+    // Method to round the corners of images
+    public static Bitmap roundCorners(Bitmap squareBit) {
+        Bitmap result = Bitmap.createBitmap(squareBit.getWidth(), squareBit.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(result);
+
+        final int color = 0xff424242;
+        final Paint paint = new Paint();
+        final Rect rect = new Rect(0, 0, squareBit.getWidth(), squareBit.getHeight());
+        final RectF rectF = new RectF(rect);
+        final float roundPx = (squareBit.getWidth()/2);
+
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+        paint.setColor(color);
+        canvas.drawRoundRect(rectF, roundPx, roundPx, paint);
+
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(squareBit, rect, rect, paint);
+        return result;
     }
 }

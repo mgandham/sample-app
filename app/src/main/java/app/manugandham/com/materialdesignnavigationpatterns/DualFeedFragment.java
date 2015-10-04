@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -24,7 +25,7 @@ public class DualFeedFragment extends RootFragment {
         view = inflater.inflate(R.layout.fragment_dual_feed_layout, container, false);
         viewPager = (ViewPager) view.findViewById(R.id.pager);
         pagerTabStrip = (PagerTabStrip) view.findViewById(R.id.pager_header);
-        pagerTabStrip.setTabIndicatorColor(getResources().getColor(R.color.ColorPrimary));
+        pagerTabStrip.setTabIndicatorColor(ContextCompat.getColor(getContext(),R.color.ColorPrimary));
         setAdapterViewPager();
         mHandler = new Handler();
         mHandler.postDelayed(new Runnable() {
@@ -37,7 +38,6 @@ public class DualFeedFragment extends RootFragment {
     }
 
     public void setAdapterViewPager() {
-        //This is the default code... all inheriting methods should override this function
         adapterViewPager = new FragmentPagerAdapter(getFragmentManager()) {
             @Override
             public Fragment getItem(int position) {

@@ -17,4 +17,7 @@
     <string name="new_title">New</string>
     <string name="inbox_title">Inbox</string>
     <string name="profile_title">Profile</string>
+    <string name="profile_name">Manu Gandham</string>
+    <string name="profile_email">manugandham@gmail.com</string>
+    <string name="profile_bio">Manu is an Android Developer living in Los Angeles, California where the sun always shines.</string>
 </resources>
