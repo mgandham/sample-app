@@ -26,7 +26,7 @@ public class DualFeedFragment extends RootFragment {
         view = inflater.inflate(R.layout.fragment_dual_feed_layout, container, false);
         viewPager = (ViewPager) view.findViewById(R.id.pager);
         pagerTabStrip = (PagerTabStrip) view.findViewById(R.id.pager_header);
-        pagerTabStrip.setTabIndicatorColor(ContextCompat.getColor(getContext(),R.color.ColorPrimary));
+        pagerTabStrip.setTabIndicatorColor(getResources().getColor(R.color.ColorPrimary));
         setAdapterViewPager();
         mHandler = new Handler();
         mHandler.postDelayed(new Runnable() {
