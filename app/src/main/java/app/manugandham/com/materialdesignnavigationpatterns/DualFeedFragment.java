@@ -1,5 +1,9 @@
 package app.manugandham.com.materialdesignnavigationpatterns;
 
+/**
+ * Created by Manu on 10/2/2015.
+ */
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -11,9 +15,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by Manu on 10/2/2015.
- */
 public class DualFeedFragment extends RootFragment {
     PagerTabStrip pagerTabStrip;
     FragmentPagerAdapter adapterViewPager;

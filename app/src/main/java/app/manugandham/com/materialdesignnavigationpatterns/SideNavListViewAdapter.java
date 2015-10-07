@@ -1,5 +1,9 @@
 package app.manugandham.com.materialdesignnavigationpatterns;
 
+/**
+ * Created by Manu on 10/2/2015.
+ */
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,9 +12,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-/**
- * Created by Manu on 7/28/2015.
- */
 public class SideNavListViewAdapter extends BaseAdapter {
     Context context;
     String[] data;
@@ -49,5 +50,3 @@ public class SideNavListViewAdapter extends BaseAdapter {
         return vi;
     }
 }
-
-

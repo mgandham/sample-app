@@ -14,19 +14,18 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,17 +37,17 @@ import android.widget.TextView;
 import java.util.Stack;
 
 public class HomeScreenActivity extends AppCompatActivity implements RootFragment.FragmentListener{
-    private boolean savePageToHistory; //Used to add viewPager frags to custom "backstack"
+    private boolean savePageToHistory;
     private Stack<Integer> pageHistory;
     private int currentPage = 0;
-    private String currentToolbarTitle = "Vida"; //used for state-tracking
+    private String currentToolbarTitle = "Home";
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
     private ListView drawerListView;
     private SideNavListViewAdapter mAdapter;
     private FragmentPagerAdapter adapterViewPager;
     private Toolbar toolbar;
-    private ImageView userImage; //For Nav drawer header
+    private ImageView userImage;
     private TextView toolBarTitle;
     private ViewPager viewPager;
     private Handler mHandler;
@@ -72,7 +71,7 @@ public class HomeScreenActivity extends AppCompatActivity implements RootFragmen
         toolbar.findViewById(R.id.toolbar_title).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDrawerLayout.openDrawer(Gravity.START);
+                mDrawerLayout.openDrawer(GravityCompat.START);
             }
         });
 
@@ -148,8 +147,8 @@ public class HomeScreenActivity extends AppCompatActivity implements RootFragmen
     }
     @Override
     public void onBackPressed() {
-        if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)){
-            mDrawerLayout.closeDrawer(Gravity.LEFT);
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)){
+            mDrawerLayout.closeDrawer(GravityCompat.START);
         } else {
             if (pageHistory.empty())
                 super.onBackPressed();
